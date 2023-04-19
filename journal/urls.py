@@ -1,8 +1,10 @@
 from django.urls import path, include
+from django.contrib import admin
 from journal import views
 
 
 urlpatterns = [
     path('', views.main),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('teachers/', views.teachers),
+    path('groups/', views.groups),
 ]

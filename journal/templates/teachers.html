@@ -3,12 +3,8 @@
 {% block content %}
 <div><h3>Учителя:</h3></div>
 {% for i in teachers %}
-    <span>{{i.name}} </span>
+    <div>{{i.id}}) <a href="">{{i.name}}</a></div>
 {% endfor %}
 
-<div><h3>Классы:</h3></div>
-{% for i in groups %}
-    <span>{{i.name}} </span>
-{% endfor %}
 
 {% endblock %}

@@ -13,7 +13,7 @@ class Mark(models.Model):
         (".", "."),
     )
     name = models.CharField(
-        max_length=20,
+        max_length=1,
         choices=CHOICES,
         null=False,
         blank=False
@@ -42,7 +42,27 @@ class Student(models.Model):
     group = models.ForeignKey('Group', on_delete=models.PROTECT, null=False, blank=False)
 
 class Group(models.Model):
-    name = models.CharField(max_length=20)
-
+    YEAR_CHOICES = (
+        ("1", "1"),
+        ("2", "2"),
+        ("3", "3"),
+        ("4", "4"),
+        ("5", "5"),
+        ("6", "6"),
+        ("7", "7"),
+        ("8", "8"),
+        ("9", "9"),
+        ("-", "-"),
+    )
+    LETTER_CHOICES = (
+        ("А", "А"),
+        ("Б", "Б"),
+        ("В", "В"),
+        ("Г", "Г"),
+        ("Д", "Д"),
+        ("-", "-"),
+    )
+    letter = models.CharField(max_length=1, choices=LETTER_CHOICES, default='-')
+    study_year = models.CharField(max_length=2, choices=YEAR_CHOICES, default='-')
 class Subject(models.Model):
     name = models.CharField(max_length=20)
