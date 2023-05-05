@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Журнал класса {{group.study_year}}{{group.letter}}</h2>
+<table>
+    <tr><th><-/></th>
+        {% for i in lessons %}
+        <th> {{i.date}} |</th>
+        {% endfor %}
+    </tr>
+    {% for i in students %}
+    <tr>
+        <th>{{i.name}}</th>
+        {% for j in lessons %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

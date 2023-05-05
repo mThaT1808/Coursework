@@ -18,6 +18,10 @@ class Mark(models.Model):
         null=False,
         blank=False
     )
+    student = models.ForeignKey(
+        'Student',
+        on_delete=models.CASCADE
+    )
     lesson = models.ForeignKey(
         'Lesson',
         on_delete=models.CASCADE,

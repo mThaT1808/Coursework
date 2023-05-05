@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div><h3>Предметы:</h3></div>
+{% for i in subjects %}
+    <div>{{i.name}} | <a href="{{i.id}}/">ЖУРНАЛ</a></div>
+{% endfor %}
+
+
+{% endblock %}

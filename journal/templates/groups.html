@@ -3,7 +3,7 @@
 {% block content %}
 <div><h3>Группы:</h3></div>
 {% for i in groups %}
-    <div><a href="">{{i.study_year}} {{i.letter}}</a></div>
+    <div><a href="journal/{{i.id}}/">{{i.study_year}} {{i.letter}}</a></div>
 {% endfor %}
 
 
