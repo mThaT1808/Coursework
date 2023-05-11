@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div><h3>Предметы:</h3></div>
-
+<div><h3>Журнал по предмету {{subject.name}}, класса {{group.study_year}}{{group.letter}}:</h3></div>
+<table>
+    {% for i in lessons %}
+<tr><th>текст </th></tr> <!--ряд с ячейками заголовков-->
+    {% endfor %}
+    {% for i in students %}
+<tr><th>текст </th></tr> <!--ряд с ячейками заголовков-->
+<tr><td>данные</td><td>данные</td></tr> <!--ряд с ячейками тела таблицы-->
+    {% endfor %}
+</table>
 
 
 {% endblock %}

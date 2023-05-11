@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div><h3>Выберите группу:</h3></div>
+<ul>
+    {% for i in groups %}
+        <li><a href="{{i.id}}/">{{i.study_year}}{{i.letter}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

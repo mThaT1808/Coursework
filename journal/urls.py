@@ -8,6 +8,7 @@ urlpatterns = [
     path('teachers/', views.teachers),
     path('groups/', views.groups),
     path('groups/timetable/<int:id>/', views.timetable_by_group),
-    path('groups/subjects/<int:id>/', views.journal),
+    path('subjects/<int:id>/', views.prejournal),
+    path('subjects/<int:id>/<int:id1>/', views.journal),
     path('subjects/', views.subjects_list),
     ]

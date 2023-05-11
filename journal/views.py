@@ -47,17 +47,25 @@ def subjects_list(request):
     }
     return render(request, 'subjects_list.html', context)
 
-def journal(request, id: int):
-    if request.method == 'POST':
-        form = forms.Group_form(request.POST)
-        if form.is_valid():
-            obj = Group()
-            obj.name = form.cleaned_data['group_id']
-
-            return HttpResponseRedirect(f'/groups/subjects/{id}/')
-    else:
-        form = forms.Group_form()
+def journal(request, id: int, id1: int):
+    group = Group.objects.get(pk=id1)
+    subject = Subject.objects.get(pk=id)
+    students = Student.objects.filter(group=id1)
+    lessons = Lesson.objects.filter(group=id1, subject=id)
+    marks = Mark.objects.all()
     context = {
-
+        'group': group,
+        'subject': subject,
+        'students': students,
+        'lessons': lessons,
+        'marks': marks,
     }
     return render(request, 'journal.html', context)
+
+def prejournal(request, id: int):
+    groups = Group.objects.all()
+    context = {
+        'groups': groups,
+        'id': id,
+    }
+    return render(request, 'prejournal.html', context)
