@@ -2,13 +2,29 @@
 
 {% block content %}
 <div><h3>Журнал по предмету {{subject.name}}, класса {{group.study_year}}{{group.letter}}:</h3></div>
-<table>
+<table border="solid">
+    <tr><th>-//- </th>
     {% for i in lessons %}
-<tr><th>текст </th></tr> <!--ряд с ячейками заголовков-->
+        <th>{{i.date}}</th>
     {% endfor %}
+    </tr>
     {% for i in students %}
-<tr><th>текст </th></tr> <!--ряд с ячейками заголовков-->
-<tr><td>данные</td><td>данные</td></tr> <!--ряд с ячейками тела таблицы-->
+<tr>
+    <td>{{i.name}}</td>
+    {% for j in lessons %}
+        <td>
+            {% for y in marks %}
+            {% if y.lesson == j %}
+                {% if y.student == i %}
+                    {{y.name}}
+                {% endif %}
+            {% else %}
+            <span></span>
+            {% endif %}
+            {% endfor %}
+        </td>
+    {% endfor %}
+</tr> <!--ряд с ячейками тела таблицы-->
     {% endfor %}
 </table>
 
